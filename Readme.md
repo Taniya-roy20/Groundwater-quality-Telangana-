@@ -115,23 +115,7 @@ The project includes the following visualizations:
 - Grouped cross-validation confusion matrices for RSC models
 - USSL confusion matrix
 - Class-wise recall for USSL classification
-- Permutation feature importance across grouped folds
-
-### Figure 1: Feature-Class Correlation Heatmap
-
-![Feature-Class Correlation Heatmap](figures/figure_1_correlation_heatmap.png)
-
-### Figure 2: RSC Model Confusion Matrices
-
-![RSC Model Confusion Matrices](figures/figure_2_rsc_confusion_matrices.png)
-
-### Figure 3: USSL Confusion Matrix and Class-wise Recall
-
-![USSL Classification Results](figures/figure_3_ussl_confusion_matrix.png)
-
-### Figure 4: Permutation Feature Importance
-
-![Permutation Feature Importance](figures/figure_4_feature_importance.png)
+- Permutation feature importance across grouped follow
 
 ## 🛠️ Technologies Used
 
@@ -143,9 +127,78 @@ The project includes the following visualizations:
 - Seaborn
 - Jupyter Notebook
 
-## 🚀 How to Run the Project
 
-### 1. Clone the Repository
+## 🔄 Project Pipeline
 
-```bash
-git clone https://github.com/YOUR-USERNAME/Groundwater-Quality-ML-Research.git
+The project follows a structured machine-learning workflow, from groundwater data preprocessing to model evaluation and interpretation.
+
+```mermaid
+flowchart TD
+    A[Groundwater Quality Dataset<br/>Telangana, 2018–2020] --> B[Data Loading and Exploration]
+    B --> C[Data Cleaning and Preprocessing]
+    C --> D[Handling Missing Values]
+    D --> E[Chemical Feature Selection]
+    E --> F[Target Label Preparation]
+
+    F --> G1[RSC Classification<br/>3 Classes]
+    F --> G2[USSL Classification<br/>13 Classes]
+
+    G1 --> H[Machine Learning Models]
+    G2 --> H
+
+    H --> I[Grouped 5-Fold<br/>StratifiedGroupKFold]
+    I --> J[Model Training and Validation]
+    J --> K[Performance Evaluation]
+
+    K --> L1[Accuracy]
+    K --> L2[Macro-F1 Score]
+    K --> L3[Confusion Matrix]
+    K --> L4[Class-wise Recall]
+
+    L1 --> M[Model Comparison]
+    L2 --> M
+    L3 --> M
+    L4 --> M
+
+    M --> N[Feature Importance Analysis]
+    N --> O[Results Interpretation]
+    O --> P[Research Findings and Limitations]
+
+## ⚠️ Limitations
+
+- A number of records contain missing chemical features, likely due to inconsistent column names.
+- Duplicate spelling variations such as O.G and OG require further verification.
+- The study does not include an independent external test dataset.
+- Repeated sampling sites may occur across folds.
+- More rigorous district-wise or year-wise validation could provide stronger evidence of generalization.
+- The high RSC Decision Tree performance should be interpreted as recovery of threshold-based rules.
+
+## 🔮 Future Scope
+
+- Validate models using an independent external dataset.
+- Explore district-wise and year-wise generalization.
+- Investigate methods for handling rare USSL classes.
+- Improve data quality and resolve inconsistent feature naming.
+- Evaluate additional classification and explainability methods.
+- Extend the study to other regions and sampling periods.
+
+## 📄 Research Paper
+
+[Groundwater_Quality_Research_Paper.pdf](https://github.com/user-attachments/files/34290384/Groundwater_Quality_Research_Paper.pdf)
+
+
+**Paper title:**
+
+*Classical Machine-Learning Models for Groundwater Quality Classification in Telangana, India: Irrigation (Salinity–Sodium) and RSC Suitability Classes, 2018–2020*
+
+## 🤖 Declaration of AI Tool Usage
+
+Generative AI tools were extensively used throughout this project to support the research and development process. AI assistance was utilized for understanding the research problem, exploring the dataset, selecting and implementing suitable machine-learning models, developing and debugging code, interpreting model evaluation results, generating visualizations, and improving the structure and language of the research paper.
+
+The AI-generated suggestions and outputs were reviewed and incorporated by the author as appropriate. The author acknowledges the use of AI tools and takes responsibility for reviewing the work, verifying the reported results, and ensuring the accuracy and integrity of the final submission.
+
+## 👩‍💻 Author
+
+**TANIYA ROY**  
+B.Sc. (Hons.) Computer Science  
+Ramanujan College, University of Delhi
