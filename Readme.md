@@ -128,41 +128,26 @@ The project includes the following visualizations:
 - Jupyter Notebook
 
 
+
+
 ## 🔄 Project Pipeline
 
-The project follows a structured machine-learning workflow, from groundwater data preprocessing to model evaluation and interpretation.
+| Step | Stage | Description |
+|---|---|---|
+| 1 | **Data Collection** | Groundwater quality records from Telangana, India (2018–2020). |
+| 2 | **Data Exploration** | Examine dataset dimensions, chemical features, target distributions, and missing values. |
+| 3 | **Data Preprocessing** | Prepare chemical features and handle missing data through preprocessing pipelines. |
+| 4 | **Target Preparation** | Prepare RSC suitability labels and USSL irrigation classification labels. |
+| 5 | **Model Development** | Train classical machine-learning classifiers for both classification tasks. |
+| 6 | **Cross-Validation** | Apply grouped 5-fold StratifiedGroupKFold validation. |
+| 7 | **Model Evaluation** | Evaluate models using accuracy, macro-F1, confusion matrices, and class-wise recall. |
+| 8 | **Model Comparison** | Compare the performance of the evaluated classifiers. |
+| 9 | **Feature Importance** | Analyze the contribution of groundwater chemical features. |
+| 10 | **Interpretation** | Discuss results, class imbalance, limitations, and future improvements. |
 
-```mermaid
-flowchart TD
-    A[Groundwater Quality Dataset<br/>Telangana, 2018–2020] --> B[Data Loading and Exploration]
-    B --> C[Data Cleaning and Preprocessing]
-    C --> D[Handling Missing Values]
-    D --> E[Chemical Feature Selection]
-    E --> F[Target Label Preparation]
+### Workflow Summary
 
-    F --> G1[RSC Classification<br/>3 Classes]
-    F --> G2[USSL Classification<br/>13 Classes]
-
-    G1 --> H[Machine Learning Models]
-    G2 --> H
-
-    H --> I[Grouped 5-Fold<br/>StratifiedGroupKFold]
-    I --> J[Model Training and Validation]
-    J --> K[Performance Evaluation]
-
-    K --> L1[Accuracy]
-    K --> L2[Macro-F1 Score]
-    K --> L3[Confusion Matrix]
-    K --> L4[Class-wise Recall]
-
-    L1 --> M[Model Comparison]
-    L2 --> M
-    L3 --> M
-    L4 --> M
-
-    M --> N[Feature Importance Analysis]
-    N --> O[Results Interpretation]
-    O --> P[Research Findings and Limitations]
+**Data Collection** → **Exploration** → **Preprocessing** → **Target Preparation** → **Model Training** → **Cross-Validation** → **Evaluation** → **Comparison** → **Interpretation**
 
 ## ⚠️ Limitations
 
